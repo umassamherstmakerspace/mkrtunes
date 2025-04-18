@@ -1,7 +1,9 @@
 FROM alpine:latest as librespot-build
 WORKDIR /app
-RUN apk -U add git build-base cargo alsa-lib-dev cmake
+RUN apk -U add git build-base cargo alsa-lib-dev clang llvm-dev clang-dev cmake make musl-dev
 RUN git clone --depth 1 --branch master https://github.com/librespot-org/librespot.git .
+RUN cargo install --force --locked bindgen-cli
+ENV PATH=$PATH:/root/.cargo/bin
 RUN cargo build --release --features alsa-backend
 
 FROM alpine:latest
