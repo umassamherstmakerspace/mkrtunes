@@ -1,7 +1,7 @@
 FROM alpine:latest as librespot-build
 WORKDIR /app
 RUN apk -U add git build-base cargo alsa-lib-dev
-RUN git clone --depth 1 --branch v0.4.1 https://github.com/librespot-org/librespot.git .
+RUN git clone --depth 1 --branch master https://github.com/librespot-org/librespot.git .
 RUN cargo build --release --features alsa-backend
 
 FROM alpine:latest
