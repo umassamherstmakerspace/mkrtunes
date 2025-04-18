@@ -12,6 +12,8 @@ RUN apk update \
     dumb-init \
     curl
 
+RUN python3 -m venv /venv
+RUN . /venv/bin/activate
 RUN pip3 install \
     Mopidy \
     Mopidy-MPD \
