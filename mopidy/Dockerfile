@@ -1,5 +1,10 @@
-FROM alpine:latest
+FROM alpine:latest as librespot-build
+WORKDIR /app
+RUN apk -U add git build-base cargo alsa-lib-dev
+RUN git clone --depth 1 --branch v0.4.1 https://github.com/librespot-org/librespot.git .
+RUN cargo build --release --features alsa-backend
 
+FROM alpine:latest
 RUN apk update \
     && apk upgrade \
     && apk add --no-cache \
@@ -11,6 +16,8 @@ RUN apk update \
     python3-dev\
     dumb-init \
     curl
+
+COPY --from=librespot-build /app/target/release/librespot /usr/bin/librespot
 
 RUN python3 -m venv /venv && . /venv/bin/activate \
     && pip3 install \
