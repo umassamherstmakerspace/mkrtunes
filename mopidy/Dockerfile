@@ -21,7 +21,7 @@ RUN pip3 install \
     Mopidy-Spotify \
     Mopidy-Iris
 
-COPY mopidy.conf /mopidy_default.conf
+COPY mopidy_default.conf /mopidy_default.conf
 COPY mopidy.sh /mopidy.sh
 
 EXPOSE 6600 6680
