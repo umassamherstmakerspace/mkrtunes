@@ -12,9 +12,8 @@ RUN apk update \
     dumb-init \
     curl
 
-RUN python3 -m venv /venv
-RUN . /venv/bin/activate
-RUN pip3 install \
+RUN python3 -m venv /venv && . /venv/bin/activate \
+    && pip3 install \
     Mopidy \
     Mopidy-MPD \
     Mopidy-Local \
@@ -25,6 +24,7 @@ RUN pip3 install \
 
 COPY mopidy_default.conf /mopidy_default.conf
 COPY mopidy.sh /mopidy.sh
+RUN chmod +x /mopidy.sh
 
 EXPOSE 6600 6680
 ENTRYPOINT ["/mopidy.sh"]

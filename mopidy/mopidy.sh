@@ -1,5 +1,7 @@
 #!/bin/bash
 
+. /venv/bin/activate
+
 if [ -z ${SNAPSERVER_HOST+x} ]; then
     echo SNAPSERVER_HOST isn\'t set
     exit
