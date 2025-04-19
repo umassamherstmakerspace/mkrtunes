@@ -19,7 +19,8 @@ RUN apk update \
 
 RUN python3 -m pip install --no-cache-dir --break-system-packages \
     Mopidy-Mowecl \
-    mopidy-iris
+    mopidy-iris \
+    Mopidy-Muse
 
 COPY mopidy_default.conf /mopidy_default.conf
 COPY mopidy.sh /mopidy.sh
