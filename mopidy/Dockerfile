@@ -14,6 +14,7 @@ RUN apk update \
     alpine-sdk \
     python3-dev\
     dumb-init \
+    gst-plugins-rs-spotify \
     curl
 
 
