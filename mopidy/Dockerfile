@@ -7,9 +7,6 @@ RUN apk update \
     python3-dev \
     gstreamer \
     mopidy \
-    py3-mopidy-spotify-pyc \
-    py3-mopidy-mpd-pyc \
-    py3-mopidy-youtube-pyc \
     py-pip \
     alpine-sdk \
     python3-dev\
@@ -19,12 +16,12 @@ RUN apk update \
 
 
 RUN python3 -m pip install --no-cache-dir --break-system-packages \
-    Mopidy-Mowecl \
-    mopidy-iris \
-    Mopidy-Muse \
+    mopidy==4.0.0a4 \
+    Mopidy-Mowecl==0.6.1-a5 \
+    # mopidy-iris \
+    # Mopidy-Muse \
     Mopidy-Spotify==5.0.0a4 \
-    Mopidy-YouTube \
-    Mopidy-MPD
+    Mopidy-MPD==4.0.0a1
 
 COPY mopidy_default.conf /mopidy_default.conf
 COPY mopidy.sh /mopidy.sh
