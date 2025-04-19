@@ -16,6 +16,11 @@ RUN apk update \
     dumb-init \
     curl
 
+
+RUN python3 -m pip install --no-cache-dir --break-system-packages \
+    Mopidy-Mowecl \
+    mopidy-iris
+
 COPY mopidy_default.conf /mopidy_default.conf
 COPY mopidy.sh /mopidy.sh
 RUN chmod +x /mopidy.sh
