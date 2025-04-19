@@ -1,4 +1,4 @@
-FROM alpine:latest as gst-rs-build
+FROM alpine:latest AS gst-rs-build
 RUN echo "https://dl-cdn.alpinelinux.org/alpine/edge/testing" >> /etc/apk/repositories
 WORKDIR /build
 
@@ -49,4 +49,4 @@ COPY mopidy.sh /mopidy.sh
 RUN chmod +x /mopidy.sh
 
 EXPOSE 6600 6680
-ENTRYPOINT ash /mopidy.sh
+ENTRYPOINT [ "ash", "/mopidy.sh" ]
