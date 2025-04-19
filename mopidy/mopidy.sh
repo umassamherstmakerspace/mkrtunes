@@ -13,12 +13,8 @@ else
     SPOTIFY_CLIENT_ENABLED="true"
 fi
 
-# Copy config if it does not already exist
-if [ ! -f /etc/mopidy/mopidy.conf ]; then
-    mkdir /etc/mopidy
-    sed -e "s/{{SNAPSERVER_HOST}}/$SNAPSERVER_HOST/g" -e "s/{{SPOTIFY_CLIENT_ENABLED}}/$SPOTIFY_CLIENT_ENABLED/g" -e "s/{{SPOTIFY_CLIENT_ID}}/$SPOTIFY_CLIENT_ID/g" -e "s/{{SPOTIFY_CLIENT_SECRET}}/$SPOTIFY_CLIENT_SECRET/g" /mopidy_default.conf > /etc/mopidy/mopidy.conf
-    chmod 644 /etc/mopidy/mopidy.conf
-fi
+sed -e "s/{{SNAPSERVER_HOST}}/$SNAPSERVER_HOST/g" -e "s/{{SPOTIFY_CLIENT_ENABLED}}/$SPOTIFY_CLIENT_ENABLED/g" -e "s/{{SPOTIFY_CLIENT_ID}}/$SPOTIFY_CLIENT_ID/g" -e "s/{{SPOTIFY_CLIENT_SECRET}}/$SPOTIFY_CLIENT_SECRET/g" /mopidy_default.conf > /etc/mopidy/mopidy.conf
+chmod 644 /etc/mopidy/mopidy.conf
 
 # if [ ${APK_PACKAGES:+x} ]; then
 #     echo "-- INSTALLING APT PACKAGES $APT_PACKAGES --"
