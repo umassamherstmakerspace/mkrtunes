@@ -22,7 +22,7 @@ RUN python3 -m pip install --no-cache-dir --break-system-packages \
     Mopidy-Mowecl \
     mopidy-iris \
     Mopidy-Muse \
-    Mopidy-Spotify==5.0.0a3 \
+    Mopidy-Spotify==5.0.0a4 \
     Mopidy-YouTube \
     Mopidy-MPD
 
