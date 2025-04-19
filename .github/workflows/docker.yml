@@ -710,9 +710,9 @@ jobs:
         if: ${{ !(contains(needs.*.result, 'failure')) }}
         run: echo "All jobs passed or skipped" && echo "${{ toJSON(needs.*.result) }}"
 
-  success-check-snapcient:
+  success-check-snapclient:
     name: Docker Build & Push Snapclient Success
-    needs: [merge_snapcient, retag_snapcient]
+    needs: [merge_snapclient, retag_snapclient]
     permissions: {}
     runs-on: ubuntu-latest
     if: always()
