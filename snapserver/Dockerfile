@@ -11,4 +11,4 @@ COPY snapserver.conf /etc/snapserver.conf
 
 EXPOSE 1704 1705 1780
 
-ENTRYPOINT /usr/bin/snapserver $EXTRA_ARGS
+ENTRYPOINT [ "/usr/bin/snapserver", "$EXTRA_ARGS" ]
