@@ -21,7 +21,7 @@ jobs:
       contents: read
     outputs:
       should_run_mopidy: ${{ steps.found_paths.outputs.mopidy == 'true' || steps.should_force.outputs.should_force == 'true' }}
-      snapclient: ${{ steps.found_paths.outputs.snapclient == 'true' || steps.should_force.outputs.should_force == 'true' }}
+      should_run_snapclient: ${{ steps.found_paths.outputs.snapclient == 'true' || steps.should_force.outputs.should_force == 'true' }}
       should_run_snapserver: ${{ steps.found_paths.outputs.snapserver == 'true' || steps.should_force.outputs.should_force == 'true' }}
     steps:
       - name: Checkout code
