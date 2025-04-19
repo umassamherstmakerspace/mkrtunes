@@ -74,7 +74,7 @@ jobs:
           docker buildx imagetools create -t "${REGISTRY_NAME}/${REPOSITORY}:${TAG_PR}" "${REGISTRY_NAME}/${REPOSITORY}:${TAG_OLD}"
           docker buildx imagetools create -t "${REGISTRY_NAME}/${REPOSITORY}:${TAG_COMMIT}" "${REGISTRY_NAME}/${REPOSITORY}:${TAG_OLD}"
   
-  retag_mopidy:
+  retag_snapclient:
     name: Re-Tag Snapclient
     needs: pre-job
     permissions:
@@ -103,7 +103,7 @@ jobs:
           docker buildx imagetools create -t "${REGISTRY_NAME}/${REPOSITORY}:${TAG_PR}" "${REGISTRY_NAME}/${REPOSITORY}:${TAG_OLD}"
           docker buildx imagetools create -t "${REGISTRY_NAME}/${REPOSITORY}:${TAG_COMMIT}" "${REGISTRY_NAME}/${REPOSITORY}:${TAG_OLD}"
   
-  retag_mopidy:
+  retag_snapserver:
     name: Re-Tag Snapserver
     needs: pre-job
     permissions:
@@ -710,7 +710,7 @@ jobs:
         if: ${{ !(contains(needs.*.result, 'failure')) }}
         run: echo "All jobs passed or skipped" && echo "${{ toJSON(needs.*.result) }}"
 
-    success-check-snapcient:
+  success-check-snapcient:
     name: Docker Build & Push Snapclient Success
     needs: [merge_snapcient, retag_snapcient]
     permissions: {}
