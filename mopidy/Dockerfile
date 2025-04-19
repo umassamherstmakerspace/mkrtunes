@@ -16,10 +16,9 @@ RUN apk update \
 
 
 RUN python3 -m pip install --no-cache-dir --break-system-packages \
+    pylast \
     mopidy==4.0.0a4 \
     Mopidy-Mowecl==0.6.1-a5 \
-    # mopidy-iris \
-    # Mopidy-Muse \
     Mopidy-Spotify==5.0.0a4 \
     Mopidy-MPD==4.0.0a1
 
