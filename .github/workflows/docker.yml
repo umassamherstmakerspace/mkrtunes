@@ -27,7 +27,8 @@ jobs:
           - image: mkrtunes-mopidy
             context: mopidy
             file: mopidy/Dockerfile
-            platforms: linux/amd64,linux/arm64
+            # platforms: linux/amd64,linux/arm64
+            platforms: linux/amd64
           - image: mkrtunes-snapserver
             context: snapserver
             file: snapserver/Dockerfile
