@@ -42,7 +42,8 @@ RUN python3 -m pip install --no-cache-dir --break-system-packages \
     mopidy==4.0.0a4 \
     Mopidy-Mowecl==0.6.1-a5 \
     Mopidy-Spotify==5.0.0a4 \
-    Mopidy-MPD==4.0.0a1
+    Mopidy-MPD==4.0.0a1 \
+    Mopidy-Iris==3.70.0
 
 COPY mopidy_default.conf /mopidy_default.conf
 COPY mopidy.sh /mopidy.sh
